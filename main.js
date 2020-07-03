@@ -25,9 +25,9 @@ var SerialConnection = function() {
   this.lineBuffer = "";
   this.boundOnReceive = this.onReceive.bind(this);
   this.boundOnReceiveError = this.onReceiveError.bind(this);
-  this.onConnect = new chrome.Event();
-  this.onReadLine = new chrome.Event();
-  this.onError = new chrome.Event();
+  this.onConnect = new chrome.event();
+  this.onReadLine = new chrome.event();
+  this.onError = new chrome.event();
 };
 
 SerialConnection.prototype.onConnectComplete = function(connectionInfo) {
@@ -81,7 +81,7 @@ SerialConnection.prototype.disconnect = function() {
   if (this.connectionId < 0) {
     throw 'Invalid connection';
   }
-  
+
 };
 
 ////////////////////////////////////////////////////////
@@ -123,7 +123,7 @@ connection.getDevices(function(ports) {
   ports.forEach(function (port) {
     var displayName = port["displayName"] + "("+port.path+")";
     if (!displayName) displayName = port.path;
-    
+
     var newOption = document.createElement("option");
     newOption.text = displayName;
     newOption.value = port.path;
@@ -159,6 +159,3 @@ document.querySelector('#flash').addEventListener('click', function() {
 document.querySelector('#get_temperature').addEventListener('click', function() {
   connection.send("console.log('TEMPERATURE='+E.getTemperature().toFixed(1));\n");
 });
-
-
-
