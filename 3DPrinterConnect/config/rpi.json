@@ -12,7 +12,8 @@
         "baudrate": 115200
     },
     "joystick": {
-        "enabled": true, 
+        "enabled": true,
         "device": "/dev/input/js1"
-    }        
+    }
+    export NODE_ENV=rpi
 }
