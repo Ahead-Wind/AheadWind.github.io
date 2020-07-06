@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lecture 08</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      function printParagraphs() {
+        var paragraphs = document.
+          getElementsByTagName('p');
+        console.log(paragraphs.length);
+        for(var i = 0; i < paragraphs.length; i++) {
+          console.log(paragraphs[i].innerHTML);
+        }
+      }
+
+      // window.onload = printParagraphs;
+
+      window.addEventListener('load', printParagraphs);
+
+      window.addEventListener('load', function() {
+        var para1 = document.getElementById('para1');
+        console.log("para1: " + para1.innerHTML);
+
+        para1.innerHTML = '<strong>Paragraph 1</strong>';
+
+        para1.style.color = "#eee";
+      });
+
+      $(document).ready(function() {
+        // var listItems = document.getElementsByClassName('item');
+        var listItems = document.querySelectorAll('.item');
+        for(var i = 0; i < listItems.length; i++) {
+          console.log(listItems[i].innerHTML);
+        }
+
+        var input = document.getElementById('firstname');
+
+        console.log(input.getAttribute('placeholder'));
+        input.setAttribute('autocomplete', 'family-name');
+      });
+
+      var counter = 0;
+      function appendText() {
+        var div = document.getElementById('textParent');
+
+        var newParagraph = document.createElement('p');
+        var paraText = document.createTextNode("Paragraph Text " + counter);
+        newParagraph.appendChild(paraText);
+
+        if(counter === 0) {
+          div.appendChild(newParagraph);
+        } else {
+          div.insertBefore(newParagraph, div.children[0]);
+        }
+        counter++;
+      }
+
+      function swapText() {
+        var div = document.getElementById('textParent');
+
+        var newParagraph = document.createElement('p');
+        newParagraph.innerHTML = "<strong>Swapped Text</strong>";
+        // var paraText = document.createTextNode("<strong>Swapped Text</strong>");
+        // newParagraph.appendChild(paraText);
+
+        var secondChild = div.children[1];
+        div.replaceChild(newParagraph, secondChild);
+      }
+
+      function removeText() {
+        var div = document.getElementById('textParent');
+
+        div.removeChild(div.children[0]);
+      }
+
+    </script>
+    <style>
+      input:invalid {
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <!-- <body onload="printParagraphs();"> -->
+  <body>
+    <p id="para1">
+      Paragraph 1
+    </p>
+
+    <p id="para2">
+      Paragraph 2
+    </p>
+
+    <form action="/form-handler" method="post">
+      <label class="item" for="firstname">
+        First Name:
+      </label>
+      <input placeholder="First Name" autocomplete="given-name" type="text" id="firstname" name="user_name" title="First Name">
+    </form>
+
+    <ul>
+      <li class="item">Item 1</li>
+      <li class="item">Item 2</li>
+      <li class="item">Item 3</li>
+    </ul>
+
+    <button type="button" onclick="swapText();">Click To Swap Second Child</button>
+    <br><br>
+    <button type="button" onclick="appendText();">Click To Append</button>
+    <br><br>
+    <button type="button" onclick="removeText();">Click To Remove First Child</button>
+    <div id="textParent"></div>
+  </body>
+</html>
