@@ -5,77 +5,7 @@
     <title>Lecture 08</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
-      function printParagraphs() {
-        var paragraphs = document.
-          getElementsByTagName('p');
-        console.log(paragraphs.length);
-        for(var i = 0; i < paragraphs.length; i++) {
-          console.log(paragraphs[i].innerHTML);
-        }
-      }
-
-      // window.onload = printParagraphs;
-
-      window.addEventListener('load', printParagraphs);
-
-      window.addEventListener('load', function() {
-        var para1 = document.getElementById('para1');
-        console.log("para1: " + para1.innerHTML);
-
-        para1.innerHTML = '<strong>Paragraph 1</strong>';
-
-        para1.style.color = "#eee";
-      });
-
-      $(document).ready(function() {
-        // var listItems = document.getElementsByClassName('item');
-        var listItems = document.querySelectorAll('.item');
-        for(var i = 0; i < listItems.length; i++) {
-          console.log(listItems[i].innerHTML);
-        }
-
-        var input = document.getElementById('firstname');
-
-        console.log(input.getAttribute('placeholder'));
-        input.setAttribute('autocomplete', 'family-name');
-      });
-
-      var counter = 0;
-      function appendText() {
-        var div = document.getElementById('textParent');
-
-        var newParagraph = document.createElement('p');
-        var paraText = document.createTextNode("Paragraph Text " + counter);
-        newParagraph.appendChild(paraText);
-
-        if(counter === 0) {
-          div.appendChild(newParagraph);
-        } else {
-          div.insertBefore(newParagraph, div.children[0]);
-        }
-        counter++;
-      }
-
-      function swapText() {
-        var div = document.getElementById('textParent');
-
-        var newParagraph = document.createElement('p');
-        newParagraph.innerHTML = "<strong>Swapped Text</strong>";
-        // var paraText = document.createTextNode("<strong>Swapped Text</strong>");
-        // newParagraph.appendChild(paraText);
-
-        var secondChild = div.children[1];
-        div.replaceChild(newParagraph, secondChild);
-      }
-
-      function removeText() {
-        var div = document.getElementById('textParent');
-
-        div.removeChild(div.children[0]);
-      }
-
-    </script>
+    <script src="script.js"></script>
     <style>
       input:invalid {
         background-color: red;
