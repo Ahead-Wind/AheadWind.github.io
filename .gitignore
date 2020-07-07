@@ -1,7 +1,6 @@
 # Ignore everything
-*
-
-# but these files
-!.gitignore
-!.git
-!electron-serialport
+3DPernterPrebuilt
+ChromeUSB_SAMPLE
+electron-quick-start
+node_modules
+NodeJS Trial
