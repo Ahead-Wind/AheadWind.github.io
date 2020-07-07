@@ -1,0 +1,10 @@
+# ignores all documents in node_modules
+node_modules/
+
+# ignores all documents in .vs
+./vs
+
+# ignore all other tests
+ChromeUSB_SAMPLE
+3DPrinterPrebuilt
+NodeJS Trail

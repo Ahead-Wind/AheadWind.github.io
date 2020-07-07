@@ -1,0 +1,19 @@
+{
+  "name": "aheadwind.github.io",
+  "version": "0.0.1",
+  "description": "A new operating system for 3D Printers",
+  "main": "webserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahead-Wind/AheadWind.github.io.git"
+  },
+  "author": "Jacob Goldman and Isaiah Silva",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/Ahead-Wind/AheadWind.github.io/issues"
+  },
+  "homepage": "https://github.com/Ahead-Wind/AheadWind.github.io#readme"
+}
